@@ -1,6 +1,7 @@
 /*.gitmodules
-/.idea
-/bins/*
-/vendor/*
+/XServer/.idea/*
+/XServer/bins/*
+/XServer/vendor/*
+
 
 
