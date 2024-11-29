@@ -2,6 +2,11 @@
 /XServer/.idea/*
 /XServer/bins/*
 /XServer/vendor/*
+/XServerClient/Library/*
+/XServerClient/obj/*
+/XServerClient/Temp/*
+/XServerClient/Logs/*
+/XServerClient/Packages/*
+/XServerClient/.idea/*
 
-
-
+!/XServerClient/Packages/manifest.json

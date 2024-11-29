@@ -20,28 +20,31 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type HelloRequest struct {
+type ReqSyncFrame struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	PlayerID int64   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	Frame    int64   `protobuf:"varint,2,opt,name=Frame,proto3" json:"Frame,omitempty"`
+	X        float32 `protobuf:"fixed32,3,opt,name=X,proto3" json:"X,omitempty"`
+	Y        float32 `protobuf:"fixed32,4,opt,name=Y,proto3" json:"Y,omitempty"`
 }
 
-func (x *HelloRequest) Reset() {
-	*x = HelloRequest{}
+func (x *ReqSyncFrame) Reset() {
+	*x = ReqSyncFrame{}
 	mi := &file_frame_frame_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HelloRequest) String() string {
+func (x *ReqSyncFrame) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HelloRequest) ProtoMessage() {}
+func (*ReqSyncFrame) ProtoMessage() {}
 
-func (x *HelloRequest) ProtoReflect() protoreflect.Message {
+func (x *ReqSyncFrame) ProtoReflect() protoreflect.Message {
 	mi := &file_frame_frame_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -53,40 +56,64 @@ func (x *HelloRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HelloRequest.ProtoReflect.Descriptor instead.
-func (*HelloRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use ReqSyncFrame.ProtoReflect.Descriptor instead.
+func (*ReqSyncFrame) Descriptor() ([]byte, []int) {
 	return file_frame_frame_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *HelloRequest) GetName() string {
+func (x *ReqSyncFrame) GetPlayerID() int64 {
 	if x != nil {
-		return x.Name
+		return x.PlayerID
 	}
-	return ""
+	return 0
 }
 
-type HelloResponse struct {
+func (x *ReqSyncFrame) GetFrame() int64 {
+	if x != nil {
+		return x.Frame
+	}
+	return 0
+}
+
+func (x *ReqSyncFrame) GetX() float32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *ReqSyncFrame) GetY() float32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+type RspSyncFrame struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Message string `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
+	PlayerID int64   `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+	Frame    int64   `protobuf:"varint,2,opt,name=Frame,proto3" json:"Frame,omitempty"`
+	X        float32 `protobuf:"fixed32,3,opt,name=X,proto3" json:"X,omitempty"`
+	Y        float32 `protobuf:"fixed32,4,opt,name=Y,proto3" json:"Y,omitempty"`
 }
 
-func (x *HelloResponse) Reset() {
-	*x = HelloResponse{}
+func (x *RspSyncFrame) Reset() {
+	*x = RspSyncFrame{}
 	mi := &file_frame_frame_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *HelloResponse) String() string {
+func (x *RspSyncFrame) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*HelloResponse) ProtoMessage() {}
+func (*RspSyncFrame) ProtoMessage() {}
 
-func (x *HelloResponse) ProtoReflect() protoreflect.Message {
+func (x *RspSyncFrame) ProtoReflect() protoreflect.Message {
 	mi := &file_frame_frame_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -98,34 +125,154 @@ func (x *HelloResponse) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use HelloResponse.ProtoReflect.Descriptor instead.
-func (*HelloResponse) Descriptor() ([]byte, []int) {
+// Deprecated: Use RspSyncFrame.ProtoReflect.Descriptor instead.
+func (*RspSyncFrame) Descriptor() ([]byte, []int) {
 	return file_frame_frame_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *HelloResponse) GetMessage() string {
+func (x *RspSyncFrame) GetPlayerID() int64 {
 	if x != nil {
-		return x.Message
+		return x.PlayerID
 	}
-	return ""
+	return 0
+}
+
+func (x *RspSyncFrame) GetFrame() int64 {
+	if x != nil {
+		return x.Frame
+	}
+	return 0
+}
+
+func (x *RspSyncFrame) GetX() float32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *RspSyncFrame) GetY() float32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+type ReqReadyBattle struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerID int64 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+}
+
+func (x *ReqReadyBattle) Reset() {
+	*x = ReqReadyBattle{}
+	mi := &file_frame_frame_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ReqReadyBattle) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReqReadyBattle) ProtoMessage() {}
+
+func (x *ReqReadyBattle) ProtoReflect() protoreflect.Message {
+	mi := &file_frame_frame_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReqReadyBattle.ProtoReflect.Descriptor instead.
+func (*ReqReadyBattle) Descriptor() ([]byte, []int) {
+	return file_frame_frame_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ReqReadyBattle) GetPlayerID() int64 {
+	if x != nil {
+		return x.PlayerID
+	}
+	return 0
+}
+
+type RspReadyBattle struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PlayerID int64 `protobuf:"varint,1,opt,name=PlayerID,proto3" json:"PlayerID,omitempty"`
+}
+
+func (x *RspReadyBattle) Reset() {
+	*x = RspReadyBattle{}
+	mi := &file_frame_frame_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RspReadyBattle) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RspReadyBattle) ProtoMessage() {}
+
+func (x *RspReadyBattle) ProtoReflect() protoreflect.Message {
+	mi := &file_frame_frame_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RspReadyBattle.ProtoReflect.Descriptor instead.
+func (*RspReadyBattle) Descriptor() ([]byte, []int) {
+	return file_frame_frame_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *RspReadyBattle) GetPlayerID() int64 {
+	if x != nil {
+		return x.PlayerID
+	}
+	return 0
 }
 
 var File_frame_frame_proto protoreflect.FileDescriptor
 
 var file_frame_frame_proto_rawDesc = []byte{
 	0x0a, 0x11, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x2f, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x2e, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x12, 0x05, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x22, 0x22, 0x0a, 0x0c, 0x48, 0x65,
-	0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x22, 0x29,
-	0x0a, 0x0d, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
-	0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x32, 0x40, 0x0a, 0x07, 0x47, 0x72, 0x65,
-	0x65, 0x74, 0x65, 0x72, 0x12, 0x35, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f,
-	0x12, 0x13, 0x2e, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x14, 0x2e, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x2e, 0x48, 0x65,
-	0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x13, 0x5a, 0x11, 0x73,
-	0x65, 0x72, 0x76, 0x65, 0x72, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x66, 0x72, 0x61, 0x6d, 0x65,
-	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x74, 0x6f, 0x12, 0x0a, 0x58, 0x46, 0x72, 0x61, 0x6d, 0x65, 0x77, 0x6f, 0x72, 0x6b, 0x22,
+	0x5c, 0x0a, 0x0c, 0x52, 0x65, 0x71, 0x53, 0x79, 0x6e, 0x63, 0x46, 0x72, 0x61, 0x6d, 0x65, 0x12,
+	0x1a, 0x0a, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x03, 0x52, 0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x46,
+	0x72, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x46, 0x72, 0x61, 0x6d,
+	0x65, 0x12, 0x0c, 0x0a, 0x01, 0x58, 0x18, 0x03, 0x20, 0x01, 0x28, 0x02, 0x52, 0x01, 0x58, 0x12,
+	0x0c, 0x0a, 0x01, 0x59, 0x18, 0x04, 0x20, 0x01, 0x28, 0x02, 0x52, 0x01, 0x59, 0x22, 0x5c, 0x0a,
+	0x0c, 0x52, 0x73, 0x70, 0x53, 0x79, 0x6e, 0x63, 0x46, 0x72, 0x61, 0x6d, 0x65, 0x12, 0x1a, 0x0a,
+	0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x12, 0x14, 0x0a, 0x05, 0x46, 0x72, 0x61,
+	0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x46, 0x72, 0x61, 0x6d, 0x65, 0x12,
+	0x0c, 0x0a, 0x01, 0x58, 0x18, 0x03, 0x20, 0x01, 0x28, 0x02, 0x52, 0x01, 0x58, 0x12, 0x0c, 0x0a,
+	0x01, 0x59, 0x18, 0x04, 0x20, 0x01, 0x28, 0x02, 0x52, 0x01, 0x59, 0x22, 0x2c, 0x0a, 0x0e, 0x52,
+	0x65, 0x71, 0x52, 0x65, 0x61, 0x64, 0x79, 0x42, 0x61, 0x74, 0x74, 0x6c, 0x65, 0x12, 0x1a, 0x0a,
+	0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52,
+	0x08, 0x50, 0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x22, 0x2c, 0x0a, 0x0e, 0x52, 0x73, 0x70,
+	0x52, 0x65, 0x61, 0x64, 0x79, 0x42, 0x61, 0x74, 0x74, 0x6c, 0x65, 0x12, 0x1a, 0x0a, 0x08, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x50,
+	0x6c, 0x61, 0x79, 0x65, 0x72, 0x49, 0x44, 0x42, 0x13, 0x5a, 0x11, 0x73, 0x65, 0x72, 0x76, 0x65,
+	0x72, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x66, 0x72, 0x61, 0x6d, 0x65, 0x62, 0x06, 0x70, 0x72,
+	0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -140,16 +287,16 @@ func file_frame_frame_proto_rawDescGZIP() []byte {
 	return file_frame_frame_proto_rawDescData
 }
 
-var file_frame_frame_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_frame_frame_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_frame_frame_proto_goTypes = []any{
-	(*HelloRequest)(nil),  // 0: frame.HelloRequest
-	(*HelloResponse)(nil), // 1: frame.HelloResponse
+	(*ReqSyncFrame)(nil),   // 0: XFramework.ReqSyncFrame
+	(*RspSyncFrame)(nil),   // 1: XFramework.RspSyncFrame
+	(*ReqReadyBattle)(nil), // 2: XFramework.ReqReadyBattle
+	(*RspReadyBattle)(nil), // 3: XFramework.RspReadyBattle
 }
 var file_frame_frame_proto_depIdxs = []int32{
-	0, // 0: frame.Greeter.SayHello:input_type -> frame.HelloRequest
-	1, // 1: frame.Greeter.SayHello:output_type -> frame.HelloResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
+	0, // [0:0] is the sub-list for method output_type
+	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
 	0, // [0:0] is the sub-list for extension extendee
 	0, // [0:0] is the sub-list for field type_name
@@ -166,9 +313,9 @@ func file_frame_frame_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_frame_frame_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   4,
 			NumExtensions: 0,
-			NumServices:   1,
+			NumServices:   0,
 		},
 		GoTypes:           file_frame_frame_proto_goTypes,
 		DependencyIndexes: file_frame_frame_proto_depIdxs,

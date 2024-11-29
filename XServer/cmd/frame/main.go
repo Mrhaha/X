@@ -2,19 +2,41 @@ package main
 
 import (
 	"XServer/serverproto/frame"
-	"context"
-	"google.golang.org/grpc"
+	"fmt"
+	"io"
 	"log"
 	"net"
+	"os"
+)
+
+const (
+	TCPMsgHeadSize = 4
 )
 
 type server struct {
 	frame.UnimplementedGreeterServer
+	serverFrame             int64
+	playerNum               int32
+	inputNotify             chan struct{}
+	streamSyncServerHandler map[int64]*frame.Greeter_SyncInfoServer
 }
 
-func (s *server) SayHello(ctx context.Context, req *frame.HelloRequest) (*frame.HelloResponse, error) {
-	log.Printf("Received: %v", req)
-	return &frame.HelloResponse{Message: "Hello " + req.GetName()}, nil
+func (s *server) SyncInfo(stream frame.Greeter_SyncInfoServer) error {
+	req, err := stream.Recv()
+	if err == io.EOF || err != nil {
+		return err
+	}
+	return err
+}
+
+func handleRequest(conn net.Conn) {
+	// 读取客户端发来的消息
+	msgHeadBuf := make([]byte, TCPMsgHeadSize)
+	_, err := io.ReadFull(conn, msgHeadBuf)
+	if err != nil {
+		fmt.Println("Error reading:", err.Error())
+		return
+	}
 }
 
 func main() {
@@ -23,11 +45,17 @@ func main() {
 		log.Fatalf("Failed to listen: %v", err)
 	}
 
-	grpcServer := grpc.NewServer()
-	frame.RegisterGreeterServer(grpcServer, &server{})
+	defer listener.Close()
 
-	log.Println("Server is listening on port 50051...")
-	if err := grpcServer.Serve(listener); err != nil {
-		log.Fatalf("Failed to serve: %v", err)
+	for {
+		// 等待客户端的连接
+		conn, err := listener.Accept()
+		if err != nil {
+			fmt.Println("Error accepting: ", err.Error())
+			os.Exit(1)
+		}
+		fmt.Println("Received connection from", conn.RemoteAddr().String())
+		// 处理连接
+		go handleRequest(conn)
 	}
 }

@@ -1,17 +1,32 @@
 syntax = "proto3";
 
-package frame;
+package XFramework;
 
 option go_package = "serverproto/frame";
 
-service Greeter {
-  rpc SayHello (HelloRequest) returns (HelloResponse);
+//**********命名规范*************//
+//Client->server Req*
+//Server->client Rsp*
+//Server->
+
+message ReqSyncFrame {
+  int64 PlayerID = 1;
+  int64 Frame = 2;
+  float X = 3;
+  float Y = 4;
 }
 
-message HelloRequest {
-  string name = 1;
+message RspSyncFrame {
+  int64 PlayerID = 1;
+  int64 Frame = 2;
+  float X = 3;
+  float Y = 4;
 }
 
-message HelloResponse {
-  string message = 1;
+message ReqReadyBattle {
+  int64 PlayerID = 1;
+}
+
+message RspReadyBattle {
+  int64 PlayerID = 1;
 }
