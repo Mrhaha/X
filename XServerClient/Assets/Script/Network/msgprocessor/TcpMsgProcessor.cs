@@ -15,7 +15,11 @@ namespace Script.Network.MsgProcessor
         {
             Debug.Log("receiveMsg " + msgID);
             var resp =  XFramework.RspSyncFrame.Parser.ParseFrom(msgData);
-            Debug.Log("parser end: "+resp.Frame+" : "+resp.X+" : "+resp.Y);
+            foreach (var clientFrame in resp.ServerFrame)
+            {
+                Debug.Log("PlayerID: " + clientFrame.PlayerID + "Frame : " + clientFrame.Frame + "X : "+ clientFrame.X + 
+                          "Y : "+clientFrame.Y);
+            }
         }
 
         public void OnClose(TcpConnect connect)

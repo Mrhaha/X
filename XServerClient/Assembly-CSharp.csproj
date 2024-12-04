@@ -41,18 +41,27 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Proto\frame\Frame.cs" />
-    <Compile Include="Assets\Script\Main.cs" />
     <Compile Include="Assets\Script\Network\crypto\Crypto.cs" />
-    <Compile Include="Assets\Script\Network\msgpackager\Msgpackager.cs" />
-    <Compile Include="Assets\Script\Network\msgprocessor\IMsgProcessor.cs" />
-    <Compile Include="Assets\Script\Network\Connect\TcpConnect.cs" />
-    <Compile Include="Assets\Script\Network\msgprocessor\TcpMsgProcessor.cs" />
     <Compile Include="Assets\Script\Network\util\ProtoUtil.cs" />
     <Compile Include="Assets\Script\Network\NetManager\NetManager.cs" />
+    <Compile Include="Assets\Proto\frame\Frame.cs" />
+    <Compile Include="Assets\Script\Network\msgpackager\Msgpackager.cs" />
+    <Compile Include="Assets\Script\Network\msgprocessor\TcpMsgProcessor.cs" />
+    <Compile Include="Assets\Script\Network\msgprocessor\IMsgProcessor.cs" />
+    <Compile Include="Assets\Script\ManagerController\FrameSyncManager.cs" />
+    <Compile Include="Assets\Script\Network\Connect\TcpConnect.cs" />
     <Compile Include="Assets\Script\Network\msgprocessor\MsgHandler.cs" />
-    <Compile Include="Assets\Script\FrameSync\FrameSync.cs" />
     <Compile Include="Assets\Script\ManagerController\ManagerController.cs" />
+    <Compile Include="Assets\Script\Main.cs" />
+    <Compile Include="Assets\Script\FrameSync\FrameSyncComponent.cs" />
+    <Compile Include="Assets\Script\LogicFrame\Entity\EntityManager.cs" />
+    <Compile Include="Assets\Script\LogicFrame\Entity\Entity.cs" />
+    <Compile Include="Assets\Script\LogicFrame\Components\IComponent.cs" />
+    <Compile Include="Assets\Script\LogicFrame\Components\InputComponent.cs" />
+    <Compile Include="Assets\Script\LogicFrame\System\InputSystem.cs" />
+    <Compile Include="Assets\Script\LogicFrame\System\SystemManager.cs" />
+    <Compile Include="Assets\Script\LogicFrame\System\ISystem.cs" />
+    <Compile Include="Assets\Script\ManagerController\BattleInputManager.cs" />
     <None Include="Assets\Packages\Grpc.Core.2.46.6\lib\netstandard2.0\Grpc.Core.xml" />
     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
     <None Include="Assets\Packages\Grpc.Core.Api.2.46.6\lib\netstandard2.1\Grpc.Core.Api.xml" />

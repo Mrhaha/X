@@ -10,6 +10,10 @@ option go_package = "serverproto/frame";
 //Server->
 
 message ReqSyncFrame {
+  SyncFrame frame = 1;
+}
+
+message SyncFrame {
   int64 PlayerID = 1;
   int64 Frame = 2;
   float X = 3;
@@ -17,10 +21,7 @@ message ReqSyncFrame {
 }
 
 message RspSyncFrame {
-  int64 PlayerID = 1;
-  int64 Frame = 2;
-  float X = 3;
-  float Y = 4;
+  repeated SyncFrame serverFrame = 1;
 }
 
 message ReqReadyBattle {
@@ -29,4 +30,13 @@ message ReqReadyBattle {
 
 message RspReadyBattle {
   int64 PlayerID = 1;
+}
+
+message RspNotifyGameStart {
+}
+
+
+enum GameState{
+  GameState_None = 0;
+  GameState_Start = 1;
 }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Net.Sockets;
-using System.Reflection;
 using System.Threading.Tasks;
 using Google.Protobuf;
 using Script.Network.Crypto;
@@ -21,7 +20,7 @@ namespace Script.Network.Connect
 
         public void NewTcpConnect(string hostname, int port,ICrypto crypto)
         {
-            TcpClient tcpClient = new TcpClient();
+            var tcpClient = new TcpClient();
             tcpClient.Connect(hostname,port);
 
             _tcpClient = tcpClient;
