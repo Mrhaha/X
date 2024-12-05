@@ -18,10 +18,12 @@ namespace Script.LogicFrame.Entity
             _uniqueID = uniqueID;
         }
 
+
         public void AddComponent(IComponent com)
         {
-            _name2Component[com.GetName()] = com;
+            _name2Component[com.Name] = com;
         }
+        
         
         public IComponent GetComponentByName(string name)
         {

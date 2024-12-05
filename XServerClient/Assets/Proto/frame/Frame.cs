@@ -25,22 +25,27 @@ namespace XFramework {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "ChFmcmFtZS9mcmFtZS5wcm90bxIKWEZyYW1ld29yayI0CgxSZXFTeW5jRnJh",
-            "bWUSJAoFZnJhbWUYASABKAsyFS5YRnJhbWV3b3JrLlN5bmNGcmFtZSJCCglT",
-            "eW5jRnJhbWUSEAoIUGxheWVySUQYASABKAMSDQoFRnJhbWUYAiABKAMSCQoB",
-            "WBgDIAEoAhIJCgFZGAQgASgCIjoKDFJzcFN5bmNGcmFtZRIqCgtzZXJ2ZXJG",
-            "cmFtZRgBIAMoCzIVLlhGcmFtZXdvcmsuU3luY0ZyYW1lIiIKDlJlcVJlYWR5",
-            "QmF0dGxlEhAKCFBsYXllcklEGAEgASgDIiIKDlJzcFJlYWR5QmF0dGxlEhAK",
-            "CFBsYXllcklEGAEgASgDIhQKElJzcE5vdGlmeUdhbWVTdGFydCo0CglHYW1l",
-            "U3RhdGUSEgoOR2FtZVN0YXRlX05vbmUQABITCg9HYW1lU3RhdGVfU3RhcnQQ",
-            "ASpaCg1GcmFtZVN5bmNUeXBlEhYKEkZyYW1lU3luY1R5cGVfTm9uZRAAEhcK",
-            "E0ZyYW1lU3luY1R5cGVfTG9jYWwQARIYChRGcmFtZVN5bmNUeXBlX1NlcnZl",
-            "chACQhNaEXNlcnZlcnByb3RvL2ZyYW1lYgZwcm90bzM="));
+            "bWUSJAoFRnJhbWUYASABKAsyFS5YRnJhbWV3b3JrLlN5bmNGcmFtZSJUCglT",
+            "eW5jRnJhbWUSEAoIUGxheWVySUQYASABKAMSDQoFRnJhbWUYAiABKAMSJgoF",
+            "SW5wdXQYAyABKAsyFy5YRnJhbWV3b3JrLlBsYXllcklucHV0IkcKC1BsYXll",
+            "cklucHV0EgkKAVgYASABKAISCQoBWRgCIAEoAhIOCgZJc0p1bXAYAyABKAgS",
+            "EgoKU2tpbGxJbnB1dBgEIAMoBSKZAQoMUnNwU3luY0ZyYW1lEj4KC3NlcnZl",
+            "ckZyYW1lGAEgAygLMikuWEZyYW1ld29yay5Sc3BTeW5jRnJhbWUuU2VydmVy",
+            "RnJhbWVFbnRyeRpJChBTZXJ2ZXJGcmFtZUVudHJ5EgsKA2tleRgBIAEoBRIk",
+            "CgV2YWx1ZRgCIAEoCzIVLlhGcmFtZXdvcmsuU3luY0ZyYW1lOgI4ASIiCg5S",
+            "ZXFSZWFkeUJhdHRsZRIQCghQbGF5ZXJJRBgBIAEoAyIiCg5Sc3BSZWFkeUJh",
+            "dHRsZRIQCghQbGF5ZXJJRBgBIAEoAyIUChJSc3BOb3RpZnlHYW1lU3RhcnQq",
+            "NAoJR2FtZVN0YXRlEhIKDkdhbWVTdGF0ZV9Ob25lEAASEwoPR2FtZVN0YXRl",
+            "X1N0YXJ0EAEqWgoNRnJhbWVTeW5jVHlwZRIWChJGcmFtZVN5bmNUeXBlX05v",
+            "bmUQABIXChNGcmFtZVN5bmNUeXBlX0xvY2FsEAESGAoURnJhbWVTeW5jVHlw",
+            "ZV9TZXJ2ZXIQAkITWhFzZXJ2ZXJwcm90by9mcmFtZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::XFramework.GameState), typeof(global::XFramework.FrameSyncType), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.ReqSyncFrame), global::XFramework.ReqSyncFrame.Parser, new[]{ "Frame" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.SyncFrame), global::XFramework.SyncFrame.Parser, new[]{ "PlayerID", "Frame", "X", "Y" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.RspSyncFrame), global::XFramework.RspSyncFrame.Parser, new[]{ "ServerFrame" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.SyncFrame), global::XFramework.SyncFrame.Parser, new[]{ "PlayerID", "Frame", "Input" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.PlayerInput), global::XFramework.PlayerInput.Parser, new[]{ "X", "Y", "IsJump", "SkillInput" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.RspSyncFrame), global::XFramework.RspSyncFrame.Parser, new[]{ "ServerFrame" }, null, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
             new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.ReqReadyBattle), global::XFramework.ReqReadyBattle.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.RspReadyBattle), global::XFramework.RspReadyBattle.Parser, new[]{ "PlayerID" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::XFramework.RspNotifyGameStart), global::XFramework.RspNotifyGameStart.Parser, null, null, null, null, null)
@@ -108,7 +113,7 @@ namespace XFramework {
       return new ReqSyncFrame(this);
     }
 
-    /// <summary>Field number for the "frame" field.</summary>
+    /// <summary>Field number for the "Frame" field.</summary>
     public const int FrameFieldNumber = 1;
     private global::XFramework.SyncFrame frame_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -298,8 +303,7 @@ namespace XFramework {
     public SyncFrame(SyncFrame other) : this() {
       playerID_ = other.playerID_;
       frame_ = other.frame_;
-      x_ = other.x_;
-      y_ = other.y_;
+      input_ = other.input_ != null ? other.input_.Clone() : null;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -333,27 +337,15 @@ namespace XFramework {
       }
     }
 
-    /// <summary>Field number for the "X" field.</summary>
-    public const int XFieldNumber = 3;
-    private float x_;
+    /// <summary>Field number for the "Input" field.</summary>
+    public const int InputFieldNumber = 3;
+    private global::XFramework.PlayerInput input_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float X {
-      get { return x_; }
+    public global::XFramework.PlayerInput Input {
+      get { return input_; }
       set {
-        x_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Y" field.</summary>
-    public const int YFieldNumber = 4;
-    private float y_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public float Y {
-      get { return y_; }
-      set {
-        y_ = value;
+        input_ = value;
       }
     }
 
@@ -374,8 +366,7 @@ namespace XFramework {
       }
       if (PlayerID != other.PlayerID) return false;
       if (Frame != other.Frame) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(X, other.X)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Y, other.Y)) return false;
+      if (!object.Equals(Input, other.Input)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -385,8 +376,7 @@ namespace XFramework {
       int hash = 1;
       if (PlayerID != 0L) hash ^= PlayerID.GetHashCode();
       if (Frame != 0L) hash ^= Frame.GetHashCode();
-      if (X != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(X);
-      if (Y != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Y);
+      if (input_ != null) hash ^= Input.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -413,13 +403,9 @@ namespace XFramework {
         output.WriteRawTag(16);
         output.WriteInt64(Frame);
       }
-      if (X != 0F) {
-        output.WriteRawTag(29);
-        output.WriteFloat(X);
-      }
-      if (Y != 0F) {
-        output.WriteRawTag(37);
-        output.WriteFloat(Y);
+      if (input_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Input);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -439,13 +425,9 @@ namespace XFramework {
         output.WriteRawTag(16);
         output.WriteInt64(Frame);
       }
-      if (X != 0F) {
-        output.WriteRawTag(29);
-        output.WriteFloat(X);
-      }
-      if (Y != 0F) {
-        output.WriteRawTag(37);
-        output.WriteFloat(Y);
+      if (input_ != null) {
+        output.WriteRawTag(26);
+        output.WriteMessage(Input);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -463,11 +445,8 @@ namespace XFramework {
       if (Frame != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Frame);
       }
-      if (X != 0F) {
-        size += 1 + 4;
-      }
-      if (Y != 0F) {
-        size += 1 + 4;
+      if (input_ != null) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Input);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -487,11 +466,11 @@ namespace XFramework {
       if (other.Frame != 0L) {
         Frame = other.Frame;
       }
-      if (other.X != 0F) {
-        X = other.X;
-      }
-      if (other.Y != 0F) {
-        Y = other.Y;
+      if (other.input_ != null) {
+        if (input_ == null) {
+          Input = new global::XFramework.PlayerInput();
+        }
+        Input.MergeFrom(other.Input);
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -516,12 +495,11 @@ namespace XFramework {
             Frame = input.ReadInt64();
             break;
           }
-          case 29: {
-            X = input.ReadFloat();
-            break;
-          }
-          case 37: {
-            Y = input.ReadFloat();
+          case 26: {
+            if (input_ == null) {
+              Input = new global::XFramework.PlayerInput();
+            }
+            input.ReadMessage(Input);
             break;
           }
         }
@@ -547,12 +525,302 @@ namespace XFramework {
             Frame = input.ReadInt64();
             break;
           }
-          case 29: {
+          case 26: {
+            if (input_ == null) {
+              Input = new global::XFramework.PlayerInput();
+            }
+            input.ReadMessage(Input);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class PlayerInput : pb::IMessage<PlayerInput>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<PlayerInput> _parser = new pb::MessageParser<PlayerInput>(() => new PlayerInput());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<PlayerInput> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PlayerInput() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PlayerInput(PlayerInput other) : this() {
+      x_ = other.x_;
+      y_ = other.y_;
+      isJump_ = other.isJump_;
+      skillInput_ = other.skillInput_.Clone();
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public PlayerInput Clone() {
+      return new PlayerInput(this);
+    }
+
+    /// <summary>Field number for the "X" field.</summary>
+    public const int XFieldNumber = 1;
+    private float x_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float X {
+      get { return x_; }
+      set {
+        x_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Y" field.</summary>
+    public const int YFieldNumber = 2;
+    private float y_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public float Y {
+      get { return y_; }
+      set {
+        y_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IsJump" field.</summary>
+    public const int IsJumpFieldNumber = 3;
+    private bool isJump_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool IsJump {
+      get { return isJump_; }
+      set {
+        isJump_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SkillInput" field.</summary>
+    public const int SkillInputFieldNumber = 4;
+    private static readonly pb::FieldCodec<int> _repeated_skillInput_codec
+        = pb::FieldCodec.ForInt32(34);
+    private readonly pbc::RepeatedField<int> skillInput_ = new pbc::RepeatedField<int>();
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public pbc::RepeatedField<int> SkillInput {
+      get { return skillInput_; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as PlayerInput);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(PlayerInput other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(X, other.X)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.Equals(Y, other.Y)) return false;
+      if (IsJump != other.IsJump) return false;
+      if(!skillInput_.Equals(other.skillInput_)) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (X != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(X);
+      if (Y != 0F) hash ^= pbc::ProtobufEqualityComparers.BitwiseSingleEqualityComparer.GetHashCode(Y);
+      if (IsJump != false) hash ^= IsJump.GetHashCode();
+      hash ^= skillInput_.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (X != 0F) {
+        output.WriteRawTag(13);
+        output.WriteFloat(X);
+      }
+      if (Y != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(Y);
+      }
+      if (IsJump != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsJump);
+      }
+      skillInput_.WriteTo(output, _repeated_skillInput_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (X != 0F) {
+        output.WriteRawTag(13);
+        output.WriteFloat(X);
+      }
+      if (Y != 0F) {
+        output.WriteRawTag(21);
+        output.WriteFloat(Y);
+      }
+      if (IsJump != false) {
+        output.WriteRawTag(24);
+        output.WriteBool(IsJump);
+      }
+      skillInput_.WriteTo(ref output, _repeated_skillInput_codec);
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (X != 0F) {
+        size += 1 + 4;
+      }
+      if (Y != 0F) {
+        size += 1 + 4;
+      }
+      if (IsJump != false) {
+        size += 1 + 1;
+      }
+      size += skillInput_.CalculateSize(_repeated_skillInput_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(PlayerInput other) {
+      if (other == null) {
+        return;
+      }
+      if (other.X != 0F) {
+        X = other.X;
+      }
+      if (other.Y != 0F) {
+        Y = other.Y;
+      }
+      if (other.IsJump != false) {
+        IsJump = other.IsJump;
+      }
+      skillInput_.Add(other.skillInput_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 13: {
             X = input.ReadFloat();
             break;
           }
-          case 37: {
+          case 21: {
             Y = input.ReadFloat();
+            break;
+          }
+          case 24: {
+            IsJump = input.ReadBool();
+            break;
+          }
+          case 34:
+          case 32: {
+            skillInput_.AddEntriesFrom(input, _repeated_skillInput_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 13: {
+            X = input.ReadFloat();
+            break;
+          }
+          case 21: {
+            Y = input.ReadFloat();
+            break;
+          }
+          case 24: {
+            IsJump = input.ReadBool();
+            break;
+          }
+          case 34:
+          case 32: {
+            skillInput_.AddEntriesFrom(ref input, _repeated_skillInput_codec);
             break;
           }
         }
@@ -576,7 +844,7 @@ namespace XFramework {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[2]; }
+      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -608,12 +876,12 @@ namespace XFramework {
 
     /// <summary>Field number for the "serverFrame" field.</summary>
     public const int ServerFrameFieldNumber = 1;
-    private static readonly pb::FieldCodec<global::XFramework.SyncFrame> _repeated_serverFrame_codec
-        = pb::FieldCodec.ForMessage(10, global::XFramework.SyncFrame.Parser);
-    private readonly pbc::RepeatedField<global::XFramework.SyncFrame> serverFrame_ = new pbc::RepeatedField<global::XFramework.SyncFrame>();
+    private static readonly pbc::MapField<int, global::XFramework.SyncFrame>.Codec _map_serverFrame_codec
+        = new pbc::MapField<int, global::XFramework.SyncFrame>.Codec(pb::FieldCodec.ForInt32(8, 0), pb::FieldCodec.ForMessage(18, global::XFramework.SyncFrame.Parser), 10);
+    private readonly pbc::MapField<int, global::XFramework.SyncFrame> serverFrame_ = new pbc::MapField<int, global::XFramework.SyncFrame>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public pbc::RepeatedField<global::XFramework.SyncFrame> ServerFrame {
+    public pbc::MapField<int, global::XFramework.SyncFrame> ServerFrame {
       get { return serverFrame_; }
     }
 
@@ -632,7 +900,7 @@ namespace XFramework {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if(!serverFrame_.Equals(other.serverFrame_)) return false;
+      if (!ServerFrame.Equals(other.ServerFrame)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -640,7 +908,7 @@ namespace XFramework {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      hash ^= serverFrame_.GetHashCode();
+      hash ^= ServerFrame.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -659,7 +927,7 @@ namespace XFramework {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      serverFrame_.WriteTo(output, _repeated_serverFrame_codec);
+      serverFrame_.WriteTo(output, _map_serverFrame_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -670,7 +938,7 @@ namespace XFramework {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      serverFrame_.WriteTo(ref output, _repeated_serverFrame_codec);
+      serverFrame_.WriteTo(ref output, _map_serverFrame_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -681,7 +949,7 @@ namespace XFramework {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      size += serverFrame_.CalculateSize(_repeated_serverFrame_codec);
+      size += serverFrame_.CalculateSize(_map_serverFrame_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -711,7 +979,7 @@ namespace XFramework {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 10: {
-            serverFrame_.AddEntriesFrom(input, _repeated_serverFrame_codec);
+            serverFrame_.AddEntriesFrom(input, _map_serverFrame_codec);
             break;
           }
         }
@@ -730,7 +998,7 @@ namespace XFramework {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 10: {
-            serverFrame_.AddEntriesFrom(ref input, _repeated_serverFrame_codec);
+            serverFrame_.AddEntriesFrom(ref input, _map_serverFrame_codec);
             break;
           }
         }
@@ -754,7 +1022,7 @@ namespace XFramework {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[3]; }
+      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -943,7 +1211,7 @@ namespace XFramework {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[4]; }
+      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1132,7 +1400,7 @@ namespace XFramework {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[5]; }
+      get { return global::XFramework.FrameReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

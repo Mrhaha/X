@@ -1,4 +1,5 @@
-﻿using XFramework;
+﻿using UnityEngine;
+using XFramework;
 
 namespace Script.ManagerController
 {
@@ -15,6 +16,16 @@ namespace Script.ManagerController
             _name = name;
         }
 
+
+        public PlayerInput PackInput()
+        {
+            var input = new PlayerInput();
+            input.X = Input.GetAxis("Horizontal");
+            input.Y = Input.GetAxis("Vertical");
+            input.IsJump = Input.GetKeyDown(KeyCode.Space);
+            return input;
+        }
+        
         public void Init()
         {
             
@@ -22,14 +33,7 @@ namespace Script.ManagerController
         
         public void Update(float dt)
         {
-            var frameSyncManager = (FrameSyncManager)ManagerController.GetManagerByStringName("FrameSync");
-            switch (frameSyncManager.SyncType)
-            {
-                case FrameSyncType.Local:
-                    break;
-                case FrameSyncType.Server:
-                    break;
-            }
+            
         }
         
     }

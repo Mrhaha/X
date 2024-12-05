@@ -17,8 +17,8 @@ namespace Script.Network.MsgProcessor
             var resp =  XFramework.RspSyncFrame.Parser.ParseFrom(msgData);
             foreach (var clientFrame in resp.ServerFrame)
             {
-                Debug.Log("PlayerID: " + clientFrame.PlayerID + "Frame : " + clientFrame.Frame + "X : "+ clientFrame.X + 
-                          "Y : "+clientFrame.Y);
+                // Debug.Log("PlayerID: " + clientFrame.PlayerID + "Frame : " + clientFrame.Frame + "X : "+ clientFrame.X + 
+                //           "Y : "+clientFrame.Y);
             }
         }
 

@@ -62,6 +62,9 @@
     <Compile Include="Assets\Script\LogicFrame\System\SystemManager.cs" />
     <Compile Include="Assets\Script\LogicFrame\System\ISystem.cs" />
     <Compile Include="Assets\Script\ManagerController\BattleInputManager.cs" />
+    <Compile Include="Assets\Script\ManagerController\LogicFrameManager.cs" />
+    <Compile Include="Assets\Script\LogicFrame\Components\PlayerComponent.cs" />
+    <Compile Include="Assets\Script\LogicFrame\Components\MoveComponent.cs" />
     <None Include="Assets\Packages\Grpc.Core.2.46.6\lib\netstandard2.0\Grpc.Core.xml" />
     <None Include="Assets\Packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.xml" />
     <None Include="Assets\Packages\Grpc.Core.Api.2.46.6\lib\netstandard2.1\Grpc.Core.Api.xml" />

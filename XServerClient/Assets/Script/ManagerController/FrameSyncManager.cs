@@ -12,10 +12,15 @@ namespace Script.ManagerController
     {
         private string _name;
         private Queue<RspSyncFrame> _logicServerFrame;
-        private Int32 _serverFrame;         //服务器帧
-        private Int32 _clientFrame;         //客户端帧
+        private readonly float  _frameDelta = 0.033f; 
+        private Int32 _clientFrame = -1;                 //客户端帧（处理服务器帧更新）
+        private Int32 _clientSendFrame = -1;             //客户端已经发送帧号 (发送完成更新)
+        private Int32 _clientReceiveFrame = -1;          //客户端已经收到帧号 (收到服务器帧更新)
 
 
+        public float FrameDelta => _frameDelta;
+        //考虑一共需要几个帧号来进行区分
+        //是否能发送该帧，当前发送的客户端帧号的前一帧号服务器的确认是不是已经收到了        
         public FrameSyncType SyncType
         {
             get;
@@ -38,9 +43,15 @@ namespace Script.ManagerController
         {
             if (_logicServerFrame.Count > 0)
             {
+                _clientFrame++;
                 return _logicServerFrame.Dequeue();
             }
             return null;
+        }
+        
+        private bool SendCheck()
+        {
+            return _clientSendFrame > _clientReceiveFrame;
         }
         
         
@@ -51,6 +62,16 @@ namespace Script.ManagerController
                 case FrameSyncType.Local:
                     break;
                 case FrameSyncType.Server:
+                    if (!SendCheck())
+                    {
+                        return;
+                    }
+                    var battleInputManager = (BattleInputManager)ManagerController.GetManagerByStringName("BattleInput");
+                    var syncFrame = new SyncFrame
+                        { PlayerID = FrameSyncDefine.ClientPlayerID, Frame = _clientSendFrame, Input = battleInputManager.PackInput()};
+                    var req = new ReqSyncFrame{Frame = syncFrame};
+                    NetManager.TcpConnect.SendMsg(req);
+                    _clientSendFrame++;
                     break;
             }
         }
@@ -84,6 +105,7 @@ namespace Script.ManagerController
         {
             var rsp = (RspSyncFrame)msg;
             _logicServerFrame.Enqueue(rsp);
+            _clientReceiveFrame++;
             Debug.Log("HandlerRspSyncFrame");
         }
     }

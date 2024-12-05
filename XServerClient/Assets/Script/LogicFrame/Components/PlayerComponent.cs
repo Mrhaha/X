@@ -4,11 +4,9 @@ using UnityEditor.U2D;
 
 namespace Script.LogicFrame.Components
 {
-    public class InputComponent: IComponent
+    public class PlayerComponent: IComponent
     {
-        public float InputX;
-        public float InputY;
-        public bool IsJump;
+        public int PlayerID;
 
         public string Name
         {

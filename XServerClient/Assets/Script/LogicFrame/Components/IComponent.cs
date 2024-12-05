@@ -1,7 +1,10 @@
-﻿namespace Script.LogicFrame.Components
+﻿using System;
+
+namespace Script.LogicFrame.Components
 {
     public interface IComponent
     {
-        public string GetName();
+        public string Name { get; set; }
+        public Int32 EntityID { get; set; }
     }
 }

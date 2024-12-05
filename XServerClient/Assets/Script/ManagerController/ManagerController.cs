@@ -29,8 +29,8 @@ namespace Script.ManagerController
         public static void Init()
         {
             //********类型注册********//
-            RegisterManager(new FrameSyncManager("BattleInput"));
             RegisterManager(new FrameSyncManager("FrameSync"));
+            RegisterManager(new BattleInputManager("BattleInput"));
             
             foreach (var manager in _managers)
             {

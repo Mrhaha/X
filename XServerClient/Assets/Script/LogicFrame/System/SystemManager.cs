@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using XFramework;
 
 namespace Script.LogicFrame.System
 {
@@ -11,11 +12,11 @@ namespace Script.LogicFrame.System
             _systems.Add(new InputSystem());
         }
 
-        public static void LogicUpdate()
+        public static void LogicUpdate(RspSyncFrame curFrame)
         {
             foreach (var system in _systems)
             {
-                system.LogicUpdate();
+                system.LogicUpdate(curFrame);
             }
         }
     }

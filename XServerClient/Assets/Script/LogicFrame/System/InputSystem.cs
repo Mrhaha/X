@@ -1,30 +1,29 @@
 ﻿using Script.LogicFrame.Components;
 using Script.LogicFrame.Entity;
 using UnityEngine;
+using XFramework;
 
 namespace Script.LogicFrame.System
 {
     public class InputSystem:ISystem
     {
-        public void LogicUpdate()
+        public void LogicUpdate(RspSyncFrame curFrame)
         {
-            var moveHorizontal = Input.GetAxis("Horizontal");
-            var moveVertical = Input.GetAxis("Vertical");
-            var  inputJump = Input.GetKeyDown(KeyCode.Space);
-
-            foreach (var entityPair in EntityManager.UniqueID2Entity)
+            var iComponents = EntityManager.GetComponentsByStringName("CInput");
+            foreach (var iComponent in iComponents)
             {
-                var inputComp = (InputComponent)entityPair.Value.GetComponentByName("Input");
-                if (moveHorizontal != 0)
+                var inputComponent = (InputComponent)iComponent;
+                var playerComponent = (PlayerComponent)EntityManager.GetTargetComByEntityIDAndStringName(inputComponent.EntityID,"PlayerComponent");
+                var playerID = playerComponent.PlayerID;
+                var exist = curFrame.ServerFrame.TryGetValue(playerID,out var curInput);
+                if (!exist)
                 {
-                    inputComp.InputX  = moveHorizontal == 0 ? 0 : (moveHorizontal > 0 ? 1 : -1);
-                }
-                if (moveVertical != 0)
-                {
-                    inputComp.InputY = moveVertical == 0 ? 0 : (moveVertical > 0 ? 1 : -1);
+                    continue;
                 }
 
-                inputComp.IsJump = inputJump;
+                inputComponent.InputX = curFrame.ServerFrame[playerID].Input.X;
+                inputComponent.InputY = curFrame.ServerFrame[playerID].Input.Y;
+                inputComponent.IsJump = curFrame.ServerFrame[playerID].Input.IsJump;
             }
         }
     }

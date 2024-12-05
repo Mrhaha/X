@@ -1,7 +1,9 @@
-﻿namespace Script.LogicFrame.System
+﻿using XFramework;
+
+namespace Script.LogicFrame.System
 {
     public interface ISystem
     {
-        public void LogicUpdate();
+        public void LogicUpdate(RspSyncFrame curFrame);
     }
 }
